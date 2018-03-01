@@ -21,7 +21,7 @@ public class ExcelUtil {
 		String cellValue = "";
 		if (cell != null) {
 			// 以下是判断数据的类型
-			switch (cell.getCellType()) {
+			switch (cell.getCellType() ) {
 				case HSSFCell.CELL_TYPE_NUMERIC: // 数字
 					DecimalFormat df = new DecimalFormat("#.##");
 					cellValue = df.format(cell.getNumericCellValue());
