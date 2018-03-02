@@ -15,15 +15,6 @@ public class HttpClientUtil {
 
 	public static final String UTF_8 = "UTF-8";
 
-	public static final String GBK = "GBK";
-
-	public static final String ISO_8859_1 = "ISO-8859-1";
-
-	public static final String CONTENT_TYPE_JSON = "application/json";
-
-	public static final String CONTENT_TYPE_XML = "text/xml";
-
-
 	/**
 	 * 使用httpClient发送post请求，默认使用UTF-8编码
 	 *
