@@ -1,5 +1,6 @@
 package com.utils;
 
+import org.junit.Test;
 import sun.reflect.misc.MethodUtil;
 
 import java.io.InputStream;
@@ -7,10 +8,8 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Random;
+import java.util.*;
+
 /**
  * Created by Administrator on 2018/3/2/002.
  */
@@ -18,14 +17,10 @@ public class ElseUtil {
     /**
      * 指定字符替换
      *
-     * @param str
-     *            需要替换的字符串
-     * @param index
-     *            需要替换第几个
-     * @param value
-     *            需要替换的字符是
-     * @param replaceChar
-     *            需要替换值
+     * @param str         需要替换的字符串
+     * @param index       需要替换第几个
+     * @param value       需要替换的字符是
+     * @param replaceChar 需要替换值
      * @return
      */
     public String replaceIndex(String str, int index, String value,
@@ -47,12 +42,11 @@ public class ElseUtil {
     /**
      * 判断当前日期是星期几
      *
-     * @param pTime
-     *            修要判断的时间
+     * @param pTime 修要判断的时间
      * @return dayForWeek 判断结果
      * @Exception 发生异常
      */
-    public static int dayForWeek(String pTime){
+    public static int dayForWeek(String pTime) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         try {
@@ -139,8 +133,7 @@ public class ElseUtil {
     /**
      * java生成随机数字和字母组合
      *
-     * @param length
-     *            [生成随机数的长度]
+     * @param length [生成随机数的长度]
      * @return
      */
     public String getCharAndNumr(int length) {
@@ -164,8 +157,7 @@ public class ElseUtil {
     /**
      * 随机生成简体中文
      *
-     * @param len
-     *            int
+     * @param len int
      * @return String
      */
     public String getRandomJianHan(int len) {
@@ -212,4 +204,35 @@ public class ElseUtil {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 字符串去重
+     *
+     * @param str
+     */
+    public String replaceRepeat(String str) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (!result.toString().contains(String.valueOf(str.charAt(i)))) {
+                result.append(str.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+
+
+    /**
+     * 字符串去重 - 指定字符或字符串
+     *
+     * @param strResource
+     * @param strRepeat
+     * @return
+     */
+    public String replaceRepeatStr(String strResource, String strRepeat) {
+        String beforeStr = strResource.substring(0,strResource.indexOf(strRepeat)+1);
+        String afterStr = strResource.substring(strResource.indexOf(strRepeat)+1,strResource.length());
+        afterStr = afterStr.replaceAll(strRepeat,"");
+        return beforeStr + afterStr;
+    }
+
 }
